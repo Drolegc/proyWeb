@@ -46,7 +46,8 @@ public class home extends HttpServlet {
 		// TODO Auto-generated method stub
 
 		HttpSession sessiones = request.getSession();
-
+		System.out.println("PATH:"+request.getRequestURI().substring(request.getContextPath().length()));
+		
 		/*
 		 * Si el usuario esta logeado Cargar las listas
 		 */

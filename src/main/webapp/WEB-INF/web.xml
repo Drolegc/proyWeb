@@ -28,6 +28,12 @@
   	<description></description>
   	<servlet-class>packageWeb.logout</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>seguir</servlet-name>
+  	<display-name>seguir</display-name>
+  	<description></description>
+  	<servlet-class>packageWeb.seguir</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>home</servlet-name>
   	<url-pattern>/home</url-pattern>
@@ -43,5 +49,9 @@
   <servlet-mapping>
   	<servlet-name>logout</servlet-name>
   	<url-pattern>/logout</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>seguir</servlet-name>
+  	<url-pattern>/seguir</url-pattern>
   </servlet-mapping>
 </web-app>

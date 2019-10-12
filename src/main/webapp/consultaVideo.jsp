@@ -3,10 +3,10 @@
 		<div class="col-sm-8 single-left">
 			<div class="song">
 				<div class="song-info">
-					<h3>Some video title</h3>
+					<h3><%= request.getAttribute("titulo") %></h3>
 				</div>
 				<div class="video-grid">
-					<iframe src="https://www.youtube.com/embed/oYiT-vLjhC4"
+					<iframe src=<%= request.getAttribute("link") %>
 						allowfullscreen></iframe>
 				</div>
 			</div>
@@ -43,16 +43,8 @@
 						});
 					});
 				</script>
-				<div class="load_more">
-					<div>
-						<h4>Published on 15 June 2015</h4>
-						<img class="rounded-circle" src="/web/resources/images/c2.jpg" />
-						<div class="signin">
-							<p>Some User channel</p>
-							<a href="" class="play-icon popup-with-zoom-anim">Subscribirse</a>
-						</div>
-					</div>
-				</div>
+				<h4>Published on 15 June 2015</h4>
+				<jsp:include page="bannerChannel.jsp"></jsp:include>
 			</div>
 			<div class="all-comments">
 				<div class="all-comments-info">

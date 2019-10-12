@@ -39,11 +39,11 @@ public class login extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//Listas de kairoh
-		List<Lista> listas = controllerListas.listarListas("kairoh");
+		List<Lista> listas = controllerListas.listarListas("marcelot");
 		
 				
 		HttpSession sessiones = request.getSession();
-		sessiones.setAttribute("usuarioLogeado", "kairoh");
+		sessiones.setAttribute("usuarioLogeado", "marcelot");
 		sessiones.setAttribute("listas", listas);
 		
 		response.sendRedirect("/web/home");

@@ -47,13 +47,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="header-top-right">
 				<% if(request.getSession().getAttribute("usuarioLogeado") != null){%>
 				<div class="file">
-					<img src="/web//web/resources/images/profile.png" alt="perfil">
+					<img src="/web/resources/images/profile.png" width="40%" alt="perfil">
 				</div>
 				<div class="file">
 				<p><%= request.getSession().getAttribute("usuarioLogeado") %></p>
 				</div>
 				<div class="signin">
-					<a href="#small-dialog2" class="play-icon">Cerrar sesion</a>
+					<a href="logout" class="play-icon">Cerrar sesion</a>
 				</div>
 				<% }else{ %>
 				<div class="signin">

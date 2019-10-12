@@ -128,6 +128,28 @@ form.navbar-form.navbar-right {
 .signin a:focus {
     outline: none;
 }
+
+.signin button{
+	padding: 8px 20px;
+    background: #cc0000;
+    color: #FFF;
+    font-size: 14px;
+    text-decoration: none;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -o-border-radius: 3px;
+    -ms-border-radius: 3px;
+}
+.signin button:hover{
+	text-decoration:none;
+	color:#272C2E;
+	background:#F7F7F7;
+}
+.signin button:focus {
+    outline: none;
+}
+
 .main {
     padding: 5em 0 0 0;
 }
@@ -2761,4 +2783,18 @@ background: url(../images/social.png) no-repeat 0px 0px;
 	.footer-bottom ul li a.f-history {
 		padding: .52em 1em .52em 3em;
 	}
+}
+
+/* ---- Nuevos styles ---- */
+
+.banner{
+	display:flex !important;
+}
+
+.banner .user{
+	margin-left:auto; 
+}
+
+.banner img{
+	border-radius:50%;
 }

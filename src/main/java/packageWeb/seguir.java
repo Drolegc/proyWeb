@@ -81,6 +81,7 @@ public class seguir extends HttpServlet {
 		request.setAttribute("canal_nombre", video.getCanal().getNombre());
 		request.setAttribute("nickname", video.getCanal().getUsuario().getNickname());
 		request.setAttribute("link", video.getUrl());
+		
 
 		// Despachar
 		request.getRequestDispatcher("verVideo.jsp").forward(request, response);

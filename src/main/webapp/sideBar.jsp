@@ -6,7 +6,7 @@
 	<div class="top-navigation">
 		<div class="t-menu">MENU</div>
 		<div class="t-img">
-			<img src="images/lines.png" alt="" />
+			<img src="/web/resources/images/lines.png" alt="" />
 		</div>
 		<div class="clearfix"></div>
 	</div>
@@ -26,7 +26,10 @@
 					class="glyphicon glyphicon-home glyphicon-blackboard"
 					aria-hidden="true"></span>Listas <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></a></li>
 			<ul class="cl-effect-1">
-				<li><a href="movies.html">+ Crear lista</a></li>
+				<li>
+				<a href="#small-dialog8" class="play-icon popup-with-zoom-anim">+ Crear lista</a>
+				<jsp:include page="modalCrearLista.jsp"></jsp:include>
+				</li>
 				<li><a href="movies.html">Ver mas tarde</a></li>
 				<li><a href="movies.html">Me gusta</a></li>
 				<%

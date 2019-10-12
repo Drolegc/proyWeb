@@ -4,7 +4,7 @@
 		src="/web/resources/images/c2.jpg" />
 	<div class="user signin">
 		<p><%=request.getAttribute("canal_nombre") %></p>
-		<form method="post" action="seguir?id_video=9">
+		<form method="post" action="seguir?id_video=<%= request.getParameter("id_video") %>">
 		<input type="hidden" value="<%=request.getAttribute("nickname")%>" name="nickname" id="nickname">
 		<input type="hidden" value="<%= request.getAttribute("canal_nombre") %>" name="canal_nombre">
 		<% if(request.getAttribute("siguiendo").equals("false")){ %>

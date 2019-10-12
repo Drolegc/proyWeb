@@ -6,7 +6,7 @@
 					<h3><%= request.getAttribute("titulo") %></h3>
 				</div>
 				<div class="video-grid">
-					<iframe src=<%= request.getAttribute("link") %>
+					<iframe src="https://www.youtube.com/embed/<%= request.getAttribute("link") %>"
 						allowfullscreen></iframe>
 				</div>
 			</div>

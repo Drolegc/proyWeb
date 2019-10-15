@@ -33,7 +33,7 @@
 				<li><a href="movies.html">Ver mas tarde</a></li>
 				<li><a href="movies.html">Me gusta</a></li>
 				<%
-					if (request.getSession().getAttribute("usuarioLogeado") != null) {
+					if (request.getSession().getAttribute("usuarioLogueado") != null) {
 				%>
 				<%
 					for (Lista l : (List<Lista>) request.getSession().getAttribute("listas")) {

@@ -46,12 +46,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</form>
 			</div>
 			<div class="header-top-right">
-				<% if(request.getSession().getAttribute("usuarioLogeado") != null){%>
+				<% if(request.getSession().getAttribute("usuarioLogueado") != null){%>
 				<div class="file">
 					<img src="/web/resources/images/profile.png" width="40%" alt="perfil">
 				</div>
 				<div class="file">
-				<p><%= request.getSession().getAttribute("usuarioLogeado") %></p>
+				<p><%= request.getSession().getAttribute("usuarioLogueado") %></p>
 				</div>
 				<div class="signin">
 					<a href="logout" class="play-icon">Cerrar sesion</a>
@@ -60,6 +60,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="signin">
 					<a href="#small-dialog2" class="play-icon popup-with-zoom-anim">Sign
 						Up</a>
+						<a href="login">login</a>
 					<!-- pop-up-box -->
 					<script type="text/javascript"
 						src="/web/resources/js/modernizr.custom.min.js"></script>

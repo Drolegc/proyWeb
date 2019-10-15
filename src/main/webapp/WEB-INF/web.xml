@@ -52,6 +52,12 @@
   	<description></description>
   	<servlet-class>packageWeb.comentar</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>modificarVideo</servlet-name>
+  	<display-name>modificarVideo</display-name>
+  	<description></description>
+  	<servlet-class>packageWeb.modificarVideo</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>home</servlet-name>
   	<url-pattern>/home</url-pattern>
@@ -83,5 +89,9 @@
   <servlet-mapping>
   	<servlet-name>comentar</servlet-name>
   	<url-pattern>/comentar</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>modificarVideo</servlet-name>
+  	<url-pattern>/modificarVideo</url-pattern>
   </servlet-mapping>
 </web-app>

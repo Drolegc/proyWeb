@@ -41,51 +41,7 @@ public class seguir extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-
-		/*
-		 * Necesito el video dado un id
-		 */
-			
-		String id_video = (String) request.getParameter("id_video");
-		Video video = controllerVideo.consultaVideoPorID(Integer.parseInt(id_video));
-
-		if (request.getSession().getAttribute("usuarioLogeado") == null) {
-			request.setAttribute("siguiendo", "false");
-		} else {
-			// OBTENER SI SIGUE EL USUARIO
-
-			if (this.loSigue(video.getCanal().getNombre(),
-					controllerUser.listCanalesSeguidos((String) request.getSession().getAttribute("usuarioLogeado")))) {
-				request.setAttribute("siguiendo", "true");
-			} else {
-
-				request.setAttribute("siguiendo", "false");
-			}
-
-		}
-
-		/*
-		 * Datos del video
-		 * 
-		 * Titulo
-		 * 
-		 * Canal
-		 * 
-		 * Link
-		 * 
-		 * 
-		 */
-
-		request.setAttribute("titulo", video.getNombre());
-		request.setAttribute("canal_nombre", video.getCanal().getNombre());
-		request.setAttribute("nickname", video.getCanal().getUsuario().getNickname());
-		request.setAttribute("link", video.getUrl());
-		
-
-		// Despachar
-		request.getRequestDispatcher("verVideo.jsp").forward(request, response);
-
+	
 	}
 
 	/**
@@ -95,38 +51,37 @@ public class seguir extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-
-		String usuario_logeado = (String) request.getSession().getAttribute("usuarioLogeado");
-
-		if (usuario_logeado != null) {
-
-			// Obtener el canal a seguir
-			String nickname = (String) request.getParameter("nickname");
-			String canal = (String) request.getParameter("canal_nombre");
-			System.out.println(canal);
-			//Buscar el canal por que se necesita el nickname del usuario
-			if (request.getParameter("subscribe").equals("true")) {
-				this.controllerUser.seguirUsuario(usuario_logeado, nickname);
-			} else {
-				this.controllerUser.dejarDeSeguir(usuario_logeado, canal);
-			}
+		
+		String usuario_logeado = (String)request.getSession().getAttribute("usuarioLogeado");
+		
+		//Testing AJAX 
+		System.out.println("Ajax por post");
+		System.out.println("User: "+usuario_logeado);
+		//El estado de la subscripcion
+		// true o false
+		String subscribe = (String)request.getParameter("subscribe");
+		System.out.println(subscribe);
+		
+		//nombre del usuario a Seguir
+		String nickname = (String)request.getParameter("nickname");
+		System.out.println(nickname);
+		
+		//el nombre del canal a dejar de seguir
+		String canal_nombre = (String)request.getParameter("canal_nombre");
+		System.out.println(canal_nombre);
+		
+		response.setContentType("text/plain");
+		
+		if(subscribe.equals("true")) {
+			controllerUser.seguirUsuario(usuario_logeado, nickname);
+			response.getWriter().print("Ahora sigues a "+nickname);
+		}else {
+			controllerUser.dejarDeSeguir(usuario_logeado, canal_nombre);
+			response.getWriter().print("Dejaste de seguir a "+canal_nombre);
 		}
-		doGet(request, response);
-	}
-
-	private boolean loSigue(String nombreCanal, List<Canal> canales) {
-		/*
-		 * Si el usuario logeado sigue a String usuario Tabla relacionada a Seguir
-		 * usuario
-		 * 
-		 * usuario_nickname | canal_nombre
-		 */
-		for (Canal c : canales) {
-			if (c.getNombre().equals(nombreCanal)) {
-				return true;
-			}
-		}
-		return false;
+		
+		
+		
 	}
 
 }

@@ -93,19 +93,19 @@
 				</div>
 			</div>
 		</div>
+		<% if(request.getSession().getAttribute("usuarioLogueado") != null){ %>
 		<div class="col-md-4 single-right">
-		<% Lista lista = (Lista)request.getAttribute("lista_videos"); %>
-			<h3><%=lista.getNombre_lista() %></h3>
+			<h3>Videos privados de <%=request.getSession().getAttribute("usuarioLogueado")%></h3>
 			<div class="single-grid-right">
 			<!-- Videos en la lista -->
 			
-			<% for(Video v:lista.getVideos()){ %>
+			<% for(Video v:(List<Video>)request.getAttribute("lista_videos")){ %>
 				<div class="single-right-grids">
 					<div class="col-md-4 single-right-grid-left">
-						<a href="ver?id_video=<%= v.getId() %>&id_lista=<%= lista.getId()%>"><img src="https://i.ytimg.com/vi/<%=v.getUrl()%>/hqdefault.jpg" alt="" /></a>
+						<a href="ver?id_video=<%= v.getId() %>"><img src="https://i.ytimg.com/vi/<%=v.getUrl()%>/hqdefault.jpg" alt="" /></a>
 					</div>
 					<div class="col-md-8 single-right-grid-right">
-						<a href="ver?id_video=<%= v.getId() %>&id_lista=<%= lista.getId()%>" class="title"><%=v.getNombre() %></a>
+						<a href="ver?id_video=<%= v.getId() %>" class="title"><%=v.getNombre() %></a>
 						<p class="author">
 							<a href="#" class="author"><%=v.getCanal().getNombre() %></a>
 						</p>
@@ -115,6 +115,8 @@
 				</div>
 				<%} %>
 			</div>
+			<%} %>
 		</div>
+		
 		<div class="clearfix"></div>
 	</div>

@@ -25,8 +25,8 @@ public class logout extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		if(request.getSession().getAttribute("usuarioLogeado") != null) {
-			request.getSession().removeAttribute("usuarioLogeado");
+		if(request.getSession().getAttribute("usuarioLogueado") != null) {
+			request.getSession().removeAttribute("usuarioLogueado");
 			request.getSession().removeAttribute("listas");
 		}
 		response.sendRedirect("/web/home");

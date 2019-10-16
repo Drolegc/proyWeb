@@ -1,35 +1,34 @@
 package packageWeb;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import uytube.CategoriaController.CategoriaController;
-import uytube.CategoriaController.ICategoria;
-import uytube.ListaController.ILista;
-import uytube.ListaController.ListaController;
-import uytube.models.Categoria;
-import uytube.models.Lista;
+import uytube.VideoController.VideoController;
+import uytube.models.Video;
 
 /**
- * Servlet implementation class login
+ * Servlet implementation class modificarVideo
  */
-public class login extends HttpServlet {
+public class modificarVideo extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+    
+	private VideoController ControllerVideo;
+	
+	
     /**
      * @see HttpServlet#HttpServlet()
      */
-	private ILista controllerListas;
-    public login() {
+    public modificarVideo() {
         super();
         // TODO Auto-generated constructor stub
-        controllerListas = new ListaController();
+        ControllerVideo = new VideoController();
+        
         
     }
 
@@ -38,15 +37,20 @@ public class login extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		//Listas de kairoh
-		List<Lista> listas = controllerListas.listarListas("juliob");
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 		
-				
-		HttpSession sessiones = request.getSession();
-		sessiones.setAttribute("usuarioLogueado", "juliob");
-		sessiones.setAttribute("listas", listas);
+		String usuarioLogueado = (String)request.getSession().getAttribute("usuarioLogueado");
 		
-		response.sendRedirect("/web/home");
+		ArrayList<Video> ListaVideos = ControllerVideo.obtenerVideosUsuario("cachilas");
+		
+		System.out.println((String)request.getSession().getAttribute("usuarioLogueado"));
+		request.setAttribute("ListaConVideos", ListaVideos);
+		request.getRequestDispatcher("ModificarVideo.jsp").forward(request, response);
+		System.out.println("puto1");
+		for(Video V: ListaVideos) {
+			System.out.println(V.getNombre()+"puto");
+		}
+		
 	}
 
 	/**

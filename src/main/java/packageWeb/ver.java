@@ -1,6 +1,7 @@
 package packageWeb;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -50,29 +51,18 @@ public class ver extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		String usuario_logeado = (String) request.getSession().getAttribute("usuarioLogeado");
-		
-		/*
-		 * Consulta lista
-		 * 
-		 * Para el caso de uso de consulta lista es necesario 
-		 * mostrar el video en conjunto a la lista de reproduccion
-		 * 
-		 * */
-			
-		String id_lista = (String) request.getParameter("id_lista");
-		Lista lista = controllerLista.obtenerListaPorId(Integer.parseInt(id_lista));
+		String usuario_logueado = (String) request.getSession().getAttribute("usuarioLogueado");
 		
 		String id_video = (String) request.getParameter("id_video");
 		Video video = controllerVideo.consultaVideoPorID(Integer.parseInt(id_video));
 
-		if (request.getSession().getAttribute("usuarioLogeado") == null) {
+		if (request.getSession().getAttribute("usuarioLogueado") == null) {
 			request.setAttribute("siguiendo", "false");
 		} else {
 			// OBTENER SI SIGUE EL USUARIO
 
 			if (this.loSigue(video.getCanal().getNombre(),
-					controllerUser.listCanalesSeguidos(usuario_logeado))) {
+					controllerUser.listCanalesSeguidos(usuario_logueado))) {
 				request.setAttribute("siguiendo", "true");
 			} else {
 
@@ -102,15 +92,7 @@ public class ver extends HttpServlet {
 		request.setAttribute("descripcion", video.getDescripcion());
 		
 		/*
-		 * Datos de la lista
-		 * 
-		 * */
-		
-		request.setAttribute("lista_videos", lista);
-		
-		/*
 		 * Valoracion del video
-		 * 
 		 * */
 		
 		List<ValoracionVideo> likes = controllerValoracion.listaValoracionesVideo(Integer.parseInt(id_video));
@@ -132,10 +114,10 @@ public class ver extends HttpServlet {
 		//Si el usuario no esta logeado la accion es nula
 		request.setAttribute("accion", "null");
 		
-		if(usuario_logeado != null) {
-			if(controllerValoracion.existeValoracion(Integer.parseInt(id_video), usuario_logeado)) {
-				
-				ValoracionVideo val = controllerValoracion.traerValoracion(Integer.parseInt(id_video), usuario_logeado);
+		if(usuario_logueado != null) {
+			
+			try {
+				ValoracionVideo val = controllerValoracion.traerValoracion(Integer.parseInt(id_video), usuario_logueado);
 				
 				if(val.getValoracion()==1) {
 					request.setAttribute("accion", "like");
@@ -143,11 +125,34 @@ public class ver extends HttpServlet {
 					request.setAttribute("accion", "dislike");
 				}
 				
+				System.out.println("Existe valoracion");
+				
+			}catch(Exception e) {
+				System.out.println("No existe valoracion del usuario");
 			}
+			
+			
 		}
+		
+		System.out.println("Accion"+request.getAttribute("accion"));
 		
 		request.setAttribute("likes", like);
 		request.setAttribute("dislikes", dislike);
+	
+		/*
+		 * Si el usuario logeado es propietario del video, mostrar una lista con sus videos privados 
+		 * */
+		
+		List<Video> videos_privados = new ArrayList<Video>();
+		
+		for(Video v : controllerVideo.obtenerVideosUsuario(usuario_logueado)){
+			if(!v.getEs_publico()) {
+				videos_privados.add(v);
+			}
+		}
+		
+		request.setAttribute("lista_videos", videos_privados);
+		
 		
 		// Despachar
 		request.getRequestDispatcher("verVideo.jsp").forward(request, response);

@@ -26,9 +26,10 @@
 					class="glyphicon glyphicon-home glyphicon-blackboard"
 					aria-hidden="true"></span>Listas <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></a></li>
 			<ul class="cl-effect-1">
+							<jsp:include page="modalCrearLista.jsp"></jsp:include>
+			
 				<li>
 				<a href="#small-dialog8" class="play-icon popup-with-zoom-anim">+ Crear lista</a>
-				<jsp:include page="modalCrearLista.jsp"></jsp:include>
 				</li>
 				<li><a href="movies.html">Ver mas tarde</a></li>
 				<li><a href="movies.html">Me gusta</a></li>

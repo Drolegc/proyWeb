@@ -42,6 +42,10 @@ public class crearLista extends HttpServlet {
 		// TODO Auto-generated method stub
 		
 		String nombre_lista = (String)request.getParameter("nombre_lista");
+		
+		String categoria = (String)request.getParameter("categoria");
+		System.out.println(categoria);
+		
 		//Privado chequeado = on else null
 		boolean privado;
 		if(request.getParameter("privado") != null) {
@@ -50,8 +54,8 @@ public class crearLista extends HttpServlet {
 			privado = false;
 		}
 		
-		String user_logeado = (String)request.getSession().getAttribute("usuarioLogeado");
-		controllerLista.crearLista(nombre_lista, "Sin Categoria",user_logeado, privado, false);
+		String user_logueado = (String)request.getSession().getAttribute("usuarioLogueado");
+		controllerLista.crearLista(nombre_lista, "Sin Categoria",user_logueado, privado, false);
 		
 		
 		doGet(request, response);

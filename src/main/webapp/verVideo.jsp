@@ -5,3 +5,4 @@
   <!-- My JS -->
 <script src="/web/resources/js/ajax.js"></script>
 </body>
+</html>

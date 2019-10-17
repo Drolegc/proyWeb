@@ -10,11 +10,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import uytube.CanalController.CanalController;
+import uytube.ComentarioController.ComentarioController;
 import uytube.ListaController.ListaController;
 import uytube.UsuarioController.UsuarioController;
 import uytube.ValoracionController.ValoracionController;
 import uytube.VideoController.VideoController;
 import uytube.models.Canal;
+import uytube.models.Comentario;
 import uytube.models.Lista;
 import uytube.models.ValoracionVideo;
 import uytube.models.Video;
@@ -34,6 +36,7 @@ public class ver extends HttpServlet {
 	private CanalController controllerCanal;
 	private ListaController controllerLista;
 	private ValoracionController controllerValoracion;
+	private ComentarioController controllerComentario;
 	
     public ver() {
         super();
@@ -43,6 +46,7 @@ public class ver extends HttpServlet {
 		controllerCanal = new CanalController();
 		controllerLista = new ListaController();
 		controllerValoracion = new ValoracionController();
+		controllerComentario = new ComentarioController();
     }
 
 	/**
@@ -100,14 +104,28 @@ public class ver extends HttpServlet {
 		int like = 0;
 		int dislike = 0;
 		
+		/*
+		 * 
+		 * Chequear si el usuario logeado es propietario del video
+		 *  De serlo request.setAttribute("propietario") para el boton de info
+		 *  
+		 *  mandar Quienes les gusta y a quienes no
+		 *  
+		 *  List<String> p_dislike = lista de personas que no les gusta
+		 *  List<String p_like = lista de personas que les gusta
+		 *  
+		 *  
+		 * */
+
 		for(ValoracionVideo vv:likes) {
 			if(vv.getValoracion()==1) {
 				like++;
+				
 			}else {
 				dislike++;
+				
 			}
 		}
-		
 		//Si el usuario logeado ya le dio like
 		
 		
@@ -131,6 +149,23 @@ public class ver extends HttpServlet {
 				System.out.println("No existe valoracion del usuario");
 			}
 			
+			//Actividad
+			//controllerVideo.listaVideosUsuario(usuario_logueado);
+			//controllerValoracion.listaValoracionesVideo()
+			
+			List<String> valoraciones = new ArrayList<String>();
+			
+			for(Video v:controllerVideo.listaVideosUsuario(usuario_logueado)) {
+				for(ValoracionVideo val:controllerValoracion.listaValoracionesVideo(v.getId())) {
+					if(val.getValoracion()==1) {
+						valoraciones.add("A "+val.getUsuario().getNickname()+" le gusta "+v.getNombre());
+					}else {
+						valoraciones.add("A "+val.getUsuario().getNickname()+" no le gusta "+v.getNombre());
+					}
+				}
+			}
+			
+			request.setAttribute("valoraciones", valoraciones);
 			
 		}
 		
@@ -152,6 +187,13 @@ public class ver extends HttpServlet {
 		}
 		
 		request.setAttribute("lista_videos", videos_privados);
+		
+
+		//Comentarios del video
+		
+		List<Comentario> comentarios = controllerComentario.listarComentarios(video.getNombre());
+		
+		request.setAttribute("comentarios", comentarios);
 		
 		
 		// Despachar

@@ -117,6 +117,10 @@
   	<url-pattern>/ver</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
+  	<servlet-name>comentar</servlet-name>
+  	<url-pattern>/comentar</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
   	<servlet-name>subirVideo1</servlet-name>
   	<url-pattern>/subirVideo1</url-pattern>
   </servlet-mapping>

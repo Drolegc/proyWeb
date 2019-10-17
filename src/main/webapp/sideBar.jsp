@@ -59,7 +59,7 @@
 					aria-hidden="true"></span>Categorias <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></a></li>
 			<ul class="cl-effect-2">
 			<% for(Categoria c:(List<Categoria>) request.getSession().getAttribute("categorias")){ %>
-			<li><a href="someServletURL"><%=c.getNombre()%></a></li>
+			<li><a href="categorias?nombreCategoria=<%=c.getNombre()%>"><%=c.getNombre()%></a></li>
 			<%} %>
 			</ul>
 			<!-- script-for-menu -->

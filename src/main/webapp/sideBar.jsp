@@ -12,14 +12,14 @@
 	</div>
 	<div class="drop-navigation drop-navigation">
 		<ul class="nav nav-sidebar">
-			<li class="active"><a href="index.html" class="home-icon"><span
+			<li class="active"><a href="home" class="home-icon"><span
 					class="glyphicon glyphicon-home" aria-hidden="true"></span>Home</a></li>
 
 			<li><a href="#" class="user-icon"><span
 					class="glyphicon glyphicon-home glyphicon-blackboard"
 					aria-hidden="true"></span>Videos</a></li>
 			<ul class="">
-				<li><a href="movies.html">Subir video</a></li>
+				<li><a href="subirVideoYT">Subir video</a></li>
 				<li><a href="movies.html">Ver videos</a></li>
 			</ul>
 			<li><a href="#" class="user-icon menu1"><span

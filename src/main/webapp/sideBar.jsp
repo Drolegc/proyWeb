@@ -12,23 +12,24 @@
 	</div>
 	<div class="drop-navigation drop-navigation">
 		<ul class="nav nav-sidebar">
-			<li class="active"><a href="index.html" class="home-icon"><span
+			<li class="active"><a href="home" class="home-icon"><span
 					class="glyphicon glyphicon-home" aria-hidden="true"></span>Home</a></li>
 
 			<li><a href="#" class="user-icon"><span
 					class="glyphicon glyphicon-home glyphicon-blackboard"
 					aria-hidden="true"></span>Videos</a></li>
 			<ul class="">
-				<li><a href="movies.html">Subir video</a></li>
+				<li><a href="subirVideoYT">Subir video</a></li>
 				<li><a href="movies.html">Ver videos</a></li>
 			</ul>
 			<li><a href="#" class="user-icon menu1"><span
 					class="glyphicon glyphicon-home glyphicon-blackboard"
 					aria-hidden="true"></span>Listas <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></a></li>
 			<ul class="cl-effect-1">
+							<jsp:include page="modalCrearLista.jsp"></jsp:include>
+			
 				<li>
 				<a href="#small-dialog8" class="play-icon popup-with-zoom-anim">+ Crear lista</a>
-				<jsp:include page="modalCrearLista.jsp"></jsp:include>
 				</li>
 				<li><a href="movies.html">Ver mas tarde</a></li>
 				<li><a href="movies.html">Me gusta</a></li>

@@ -32,17 +32,32 @@ $("#form_comentario")
 		.submit(
 				function(event) {
 					event.preventDefault();
-					var data = {
-						comentario : $("#comentario").attr("value"),
-					};
-
-					var com_append = '<div class="media"><h5>Tom Brown</h5><div class="media-left"><a href="#"> </a></div><div class="media-body"><p>Maecenas ultricies rhoncus tincidunt maecenas imperdietipsum id ex pretium hendrerit maecenas imperdiet ipsum id expretium hendrerit</p><span>View all posts by :<a href="#"> Admin </a></span></div></div>';
+					
+					if(!$(".responder").is(":checked")){
+						var data = {
+							comentario : $("#comentario").val(),
+							id_video : getUrlParameter("id_video")
+						};
+					}else{
+						
+						var data = {
+								comentario : $("#comentario").val(),
+								id_video : getUrlParameter("id_video"),
+								id_comentario : $(".responder:checked").val(),
+						}
+						
+					}
+					var com_append = '<li><div class="media"><h5>Tu</h5><div class="media-left"><a href="#"></a></div><div class="media-body"><p>';
+					com_append += data.comentario;
+					com_append +='</p></div></div><li>';
+					
+					
 					$.ajax({
 						url : "comentar",
 						type : "post",
 						data : data,
 						success : function(resp) {
-							$("#comentario-box").append(com_append)
+							$("#level-0").append(com_append)
 						}
 					})
 				})
@@ -135,5 +150,4 @@ $(document).ready(function() {
 		$("#dislike").css("color", "#e03835");
 	}
 })
-
 

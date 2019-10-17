@@ -7,10 +7,11 @@
 		<div class="col-sm-8 single-left">
 			<div class="song">
 				<div class="song-info">
-					<h3><%= request.getAttribute("titulo") %></h3>
+					<h3><%=request.getAttribute("titulo")%></h3>
 				</div>
 				<div class="video-grid">
-					<iframe src="https://www.youtube.com/embed/<%= request.getAttribute("link") %>"
+					<iframe
+						src="https://www.youtube.com/embed/<%=request.getAttribute("link")%>"
 						allowfullscreen></iframe>
 				</div>
 			</div>
@@ -48,75 +49,64 @@
 					});
 				</script>
 				<h4>Published on 15 June 2015</h4>
-				<p><%= request.getAttribute("descripcion") %></p>
+				<p><%=request.getAttribute("descripcion")%></p>
 				<div class="">
-				<label class="text-primary" id="like" <% if(request.getAttribute("accion").equals("like")){%> value="true" <%}else{%>value="false"<%} %> >Me gusta <label id="like_number"><%=request.getAttribute("likes") %></label></label>|
-				<label class="text-danger" id="dislike" <% if(request.getAttribute("accion").equals("dislike")){%> value="true" <%}else{%>value="false"<%} %>  >No me gusta <label id="dislike_number"><%=request.getAttribute("dislikes") %></label></label>
+					<label class="text-primary" id="like"
+						<%if (request.getAttribute("accion").equals("like")) {%>
+						value="true" <%} else {%> value="false" <%}%>>Me gusta <label
+						id="like_number"><%=request.getAttribute("likes")%></label></label>| <label
+						class="text-danger" id="dislike"
+						<%if (request.getAttribute("accion").equals("dislike")) {%>
+						value="true" <%} else {%> value="false" <%}%>>No me gusta
+						<label id="dislike_number"><%=request.getAttribute("dislikes")%></label>
+					</label>
+							
 				</div>
 				<jsp:include page="bannerChannel.jsp"></jsp:include>
 			</div>
-			<div class="all-comments">
-				<div class="all-comments-info">
-					<div class="box">
-						<form id="form_comentario">
-							<textarea placeholder="Message" name="comentario" id="comentario" required=" "></textarea>
-							<input type="submit" value="COMENTAR">
-							<div class="clearfix"></div>
-						</form>
-					</div>
-				</div>
-				<div class="media-grids" id="comentario-box">
-					<div class="media">
-						<h5>Tom Brown</h5>
-						<div class="media-left">
-							<a href="#"> </a>
-						</div>
-						<div class="media-body">
-							<p>Maecenas ultricies rhoncus tincidunt maecenas imperdiet
-								ipsum id ex pretium hendrerit maecenas imperdiet ipsum id ex
-								pretium hendrerit</p>
-							<span>View all posts by :<a href="#"> Admin </a></span>
-						</div>
-					</div>
-					<div class="media">
-						<h5>Peter Johnson</h5>
-						<div class="media-left">
-							<a href="#"> </a>
-						</div>
-						<div class="media-body">
-							<p>Maecenas ultricies rhoncus tincidunt maecenas imperdiet
-								ipsum id ex pretium hendrerit maecenas imperdiet ipsum id ex
-								pretium hendrerit</p>
-							<span>View all posts by :<a href="#"> Admin </a></span>
-						</div>
-					</div>
-				</div>
-			</div>
+			<jsp:include page="comentarios.jsp"></jsp:include>
 		</div>
-		<% if(request.getSession().getAttribute("usuarioLogueado") != null){ %>
+		<%
+			if (request.getSession().getAttribute("usuarioLogueado") != null) {
+		%>
 		<div class="col-md-4 single-right">
-			<h3>Videos privados de <%=request.getSession().getAttribute("usuarioLogueado")%></h3>
+			<h3>
+				Videos privados de
+				<%=request.getSession().getAttribute("usuarioLogueado")%></h3>
 			<div class="single-grid-right">
-			<!-- Videos en la lista -->
-			
-			<% for(Video v:(List<Video>)request.getAttribute("lista_videos")){ %>
+				<!-- Videos en la lista -->
+
+				<%
+					for (Video v : (List<Video>) request.getAttribute("lista_videos")) {
+				%>
 				<div class="single-right-grids">
 					<div class="col-md-4 single-right-grid-left">
-						<a href="ver?id_video=<%= v.getId() %>"><img src="https://i.ytimg.com/vi/<%=v.getUrl()%>/hqdefault.jpg" alt="" /></a>
+						<a href="ver?id_video=<%=v.getId()%>"><img
+							src="https://i.ytimg.com/vi/<%=v.getUrl()%>/hqdefault.jpg" alt="" /></a>
 					</div>
 					<div class="col-md-8 single-right-grid-right">
-						<a href="ver?id_video=<%= v.getId() %>" class="title"><%=v.getNombre() %></a>
+						<a href="ver?id_video=<%=v.getId()%>" class="title"><%=v.getNombre()%></a>
 						<p class="author">
-							<a href="#" class="author"><%=v.getCanal().getNombre() %></a>
+							<a href="#" class="author"><%=v.getCanal().getNombre()%></a>
 						</p>
 						<p class="views">2,114,200 views</p>
 					</div>
 					<div class="clearfix"></div>
 				</div>
-				<%} %>
+				<%
+					}
+				%>
+			</div class="single-grid-right">
+			<h3>Actividad</h3>
+			<% for(String val: (List<String>)request.getAttribute("valoraciones")){ %>
+			<p><%=val %></p>
+			<% } %>
+			<div>
 			</div>
-			<%} %>
+			<%
+				}
+			%>
 		</div>
-		
+
 		<div class="clearfix"></div>
 	</div>

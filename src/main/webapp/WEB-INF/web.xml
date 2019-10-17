@@ -65,6 +65,24 @@
   	<servlet-class>packageWeb.valoracionVideo</servlet-class>
   </servlet>
   <servlet>
+  	<servlet-name>subirVideo</servlet-name>
+  	<display-name>subirVideo</display-name>
+  	<description></description>
+  	<servlet-class>packageWeb.subirVideo</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>subirVideo1</servlet-name>
+  	<display-name>subirVideo1</display-name>
+  	<description></description>
+  	<servlet-class>packageWeb.subirVideo1</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>subirVideoYT</servlet-name>
+  	<display-name>subirVideoYT</display-name>
+  	<description></description>
+  	<servlet-class>packageWeb.subirVideoYT</servlet-class>
+  </servlet>
+  <servlet>
   	<servlet-name>categorias</servlet-name>
   	<display-name>categorias</display-name>
   	<description></description>
@@ -99,8 +117,8 @@
   	<url-pattern>/ver</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-  	<servlet-name>comentar</servlet-name>
-  	<url-pattern>/comentar</url-pattern>
+  	<servlet-name>subirVideo1</servlet-name>
+  	<url-pattern>/subirVideo1</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
   	<servlet-name>modificarVideo</servlet-name>
@@ -113,5 +131,9 @@
   <servlet-mapping>
   	<servlet-name>categorias</servlet-name>
   	<url-pattern>/categorias</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>subirVideoYT</servlet-name>
+  	<url-pattern>/subirVideoYT</url-pattern>
   </servlet-mapping>
 </web-app>

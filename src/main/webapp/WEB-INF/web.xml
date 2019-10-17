@@ -94,6 +94,12 @@
   	<description></description>
   	<servlet-class>packageWeb.listasReproduccion</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>agregarQuitar</servlet-name>
+  	<display-name>agregarQuitar</display-name>
+  	<description></description>
+  	<servlet-class>packageWeb.agregarQuitar</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>home</servlet-name>
   	<url-pattern>/home</url-pattern>
@@ -123,6 +129,10 @@
   	<url-pattern>/ver</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
+  	<servlet-name>comentar</servlet-name>
+  	<url-pattern>/comentar</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
   	<servlet-name>subirVideo1</servlet-name>
   	<url-pattern>/subirVideo1</url-pattern>
   </servlet-mapping>
@@ -141,6 +151,10 @@
   <servlet-mapping>
   	<servlet-name>subirVideoYT</servlet-name>
   	<url-pattern>/subirVideoYT</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>agregarQuitar</servlet-name>
+  	<url-pattern>/agregarQuitar</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
   	<servlet-name>listasReproduccion</servlet-name>

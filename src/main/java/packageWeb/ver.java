@@ -92,7 +92,8 @@ public class ver extends HttpServlet {
 		request.setAttribute("titulo", video.getNombre());
 		request.setAttribute("canal_nombre", video.getCanal().getNombre());
 		request.setAttribute("nickname", video.getCanal().getUsuario().getNickname());
-		request.setAttribute("link", video.getUrl());
+		String[] url = video.getUrl().split("/");
+		request.setAttribute("link", url[url.length-1]);
 		request.setAttribute("descripcion", video.getDescripcion());
 		
 		/*
@@ -194,7 +195,6 @@ public class ver extends HttpServlet {
 		List<Comentario> comentarios = controllerComentario.listarComentarios(video.getNombre());
 		
 		request.setAttribute("comentarios", comentarios);
-		
 		
 		// Despachar
 		request.getRequestDispatcher("verVideo.jsp").forward(request, response);

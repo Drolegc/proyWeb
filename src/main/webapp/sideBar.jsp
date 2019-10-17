@@ -29,7 +29,7 @@
 							<jsp:include page="modalCrearLista.jsp"></jsp:include>
 			
 				<li>
-				<a href="#small-dialog8" class="play-icon popup-with-zoom-anim">+ Crear lista</a>
+				<a href="#small-dialog8" class="play-icon popup-with-zoom-anim" data-toggle="modal" data-target="#Modal" >+ Crear lista</a>
 				</li>
 				<li><a href="movies.html">Ver mas tarde</a></li>
 				<li><a href="movies.html">Me gusta</a></li>
@@ -75,3 +75,10 @@
 	</div>
 </div>
 </div>
+<script>
+							$( ".top-navigation" ).click(function() {
+							$( ".drop-navigation" ).slideToggle( 300, function() {
+							// Animation complete.
+							});
+							});
+						</script>

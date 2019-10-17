@@ -11,9 +11,8 @@
 <title>Categorias</title>
 </head>
 <body>
-	</br>
-	</br>
-	</br>
+<jsp:include page="sideBar.jsp"></jsp:include>	
+	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 	<div class="single-grid-right">
 		<h2><%=request.getAttribute("Categoria")%></h2>
 		<%for (Video v : (List<Video>) request.getAttribute("listaVideos")) {%>
@@ -48,6 +47,7 @@
 		<%
 			}
 		%>
+	</div>
 	</div>
 </body>
 </html>

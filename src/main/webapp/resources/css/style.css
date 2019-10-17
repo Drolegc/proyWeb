@@ -2779,10 +2779,51 @@ background: url(../images/social.png) no-repeat 0px 0px;
 	border-radius:50%;
 }
 
+
 #like:hover{
 	color:#3a9df3;
 }
 
 #dislike:hover{
 	color:#e03835;
+}
+
+table.uploadvideo{
+    margin-bottom:24px;
+    width:120%;
+    border-collapse:collapse
+}
+table.uploadvideo th{
+    padding:15px 20px 13px 20px;
+    font-weight:bold;
+    text-align:left;
+    font-family:"Exo 2",Arial,sans-serif;
+    text-transform:uppercase;
+    border-bottom:1px solid transparent
+}
+table th.textalign-right{
+    text-align:right
+}
+table.uploadvideo td{
+    font-style: italic;
+    font-size:16px;
+    width: 100px;
+    padding:15px 20px 13px 20px;
+    vertical-align:middle
+}
+table.uploadvideo tr{
+	width: 225px;
+}
+
+form.uploadvideo input.submit {
+    background: #cc0000;
+    border: white;
+    background-clip: padding-box;
+    border-radius: 5px;
+    font-size: 20px;
+    width: 200px;
+    }
+
+form.uploadvideo select {
+	width: 200px;
 }

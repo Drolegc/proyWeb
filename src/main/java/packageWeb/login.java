@@ -46,6 +46,7 @@ public class login extends HttpServlet {
 		sessiones.setAttribute("usuarioLogueado", "cachilas");
 		sessiones.setAttribute("listas", listas);
 		
+		
 		response.sendRedirect("/web/home");
 	}
 

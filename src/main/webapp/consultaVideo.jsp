@@ -70,6 +70,9 @@
 			if (request.getSession().getAttribute("usuarioLogueado") != null) {
 		%>
 		<div class="col-md-4 single-right">
+		<div class="text-center mb-2">
+		<a href="#" class="btn btn-danger">Agregar video a lista</a>
+		</div>
 			<h3>
 				Videos privados de
 				<%=request.getSession().getAttribute("usuarioLogueado")%></h3>

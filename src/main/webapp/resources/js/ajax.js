@@ -57,7 +57,7 @@ $("#form_comentario")
 						type : "post",
 						data : data,
 						success : function(resp) {
-							$("#level-0").append(com_append)
+							window.location.reload();
 						}
 					})
 				})

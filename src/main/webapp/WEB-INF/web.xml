@@ -88,6 +88,12 @@
   	<description></description>
   	<servlet-class>packageWeb.categorias</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>listasReproduccion</servlet-name>
+  	<display-name>listasReproduccion</display-name>
+  	<description></description>
+  	<servlet-class>packageWeb.listasReproduccion</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>home</servlet-name>
   	<url-pattern>/home</url-pattern>
@@ -135,5 +141,9 @@
   <servlet-mapping>
   	<servlet-name>subirVideoYT</servlet-name>
   	<url-pattern>/subirVideoYT</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>listasReproduccion</servlet-name>
+  	<url-pattern>/listasReproduccion</url-pattern>
   </servlet-mapping>
 </web-app>

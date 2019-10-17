@@ -2827,3 +2827,11 @@ form.uploadvideo input.submit {
 form.uploadvideo select {
 	width: 200px;
 }
+
+.agregar-quitar-lista{
+	display:flex;
+}
+
+.agregar-quitar-lista h3{
+	maring-right:2% !important;
+}

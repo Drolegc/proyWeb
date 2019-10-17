@@ -13,7 +13,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href="/web/resources/css/dashboard.css" rel="stylesheet">
 <!-- Custom Theme files -->
 <link href="/web/resources/css/style.css" rel='stylesheet' type='text/css' media="all" />
-<script src="/web/resources/js/jquery-1.11.1.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"
+  integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+  crossorigin="anonymous"></script>
+<script src="http://code.jquery.com/jquery-migrate-1.4.1.js"></script>
 <!--start-smoth-scrolling-->
 <!-- fonts -->
 <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>

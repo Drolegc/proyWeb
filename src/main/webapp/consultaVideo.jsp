@@ -70,9 +70,30 @@
 			if (request.getSession().getAttribute("usuarioLogueado") != null) {
 		%>
 		<div class="col-md-4 single-right">
-		<div class="text-center mb-2">
-		<a href="#" class="btn btn-danger">Agregar video a lista</a>
+		<div class="agregar-quitar-lista">
+		<h3>Agregar a </h3>
+		<form id="formAgregar">
+		<select id="agregarLista">
+		<% for(Lista l:(List<Lista>)request.getSession().getAttribute("listas")) {%>
+		<option value="<%=l.getId()%>" ><%=l.getNombre()%></option>
+		<%} %>
+		</select>
+		<input type="submit" value="Agregar">
+		</form>
 		</div>
+		
+		<div class="agregar-quitar-lista">
+		<h3>Quitar de</h3>
+		<form id="formQuitar">
+		<select id="quitarLista">
+		<% for(Lista l:(List<Lista>)request.getSession().getAttribute("listas")) {%>
+		<option value="<%=l.getId()%>"><%=l.getNombre()%></option>
+		<%} %>
+		</select>
+		<input type="submit" value="quitar">
+		</form>
+		</div>
+	
 			<h3>
 				Videos privados de
 				<%=request.getSession().getAttribute("usuarioLogueado")%></h3>
@@ -84,8 +105,10 @@
 				%>
 				<div class="single-right-grids">
 					<div class="col-md-4 single-right-grid-left">
+					<% String[] url = v.getUrl().split("/"); %>
 						<a href="ver?id_video=<%=v.getId()%>"><img
-							src="https://i.ytimg.com/vi/<%=v.getUrl()%>/hqdefault.jpg" alt="" /></a>
+							src="https://i.ytimg.com/vi/<%=url[url.length-1]%>/hqdefault.jpg" alt="" /></a>
+							
 					</div>
 					<div class="col-md-8 single-right-grid-right">
 						<a href="ver?id_video=<%=v.getId()%>" class="title"><%=v.getNombre()%></a>

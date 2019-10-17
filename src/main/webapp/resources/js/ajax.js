@@ -28,6 +28,49 @@ $("#form_subscripcion").submit(function(ev) {
 	})
 })
 
+$("#formAgregar").submit(
+function(event){
+	event.preventDefault();
+	var data = {
+			id_video: getUrlParameter("id_video"),
+			id_lista: $("#agregarLista").val(),
+			accion: "agregar"
+	};
+	
+	$.ajax({
+		url:"agregarQuitar",
+		type:"post",
+		data:data,
+		success:function(res){
+			alert(res);
+		},
+	})
+	
+	
+}		
+);
+
+$("#formQuitar").submit(
+		function(event){
+			event.preventDefault();
+			var data = {
+					id_video: getUrlParameter("id_video"),
+					id_lista: $("#quitarLista").val(),
+			};
+			
+			$.ajax({
+				url:"agregarQuitar",
+				type:"post",
+				data:data,
+				success:function(res){
+					alert(res);
+				},
+			})
+			
+			
+		}		
+		);
+
 $("#form_comentario")
 		.submit(
 				function(event) {

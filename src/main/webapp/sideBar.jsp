@@ -39,7 +39,7 @@
 				<%
 					for (Lista l : (List<Lista>) request.getSession().getAttribute("listas")) {
 				%>
-				<li><a href="movies.html"><%=l.getNombre()%></a></li>
+				<li><a href="listasReproduccion?idLista=<%=l.getId()%>"><%=l.getNombre()%></a></li>
 				<%
 					}
 				%>

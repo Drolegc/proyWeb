@@ -133,7 +133,7 @@ $(document).ready(function() {
 	console.log("Preparando");
 
 	$("#like").click(function() {
-		if ($("#like").attr("value") != "true") {
+		if (($("#like").attr("value") != "true") && (document.getElementById("usuarioLogueado") != null)) {
 			var a = parseInt($("#like_number").text());
 			$("#like_number").text(a2);
 			$("#dislike_number").text(b);
@@ -150,14 +150,14 @@ $(document).ready(function() {
 					id_video:getUrlParameter('id_video'),
 				},
 				success:function(data){
-					alert(data);
+					console.log(data);
 				}
 			});
 		}
 	});
 
 	$("#dislike").click(function() {
-		if ($("#dislike").attr("value") != "true") {
+		if (($("#dislike").attr("value") != "true")&& (document.getElementById("usuarioLogueado") != null)) {
 			var a = parseInt($("#dislike_number").text());
 			$("#dislike_number").text(b2);
 			$("#like_number").text(a);
@@ -174,7 +174,7 @@ $(document).ready(function() {
 					id_video:getUrlParameter('id_video'),
 				},
 				success:function(data){
-					alert(data);
+					console.log(data);
 				}
 			});
 			

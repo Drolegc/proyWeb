@@ -18,24 +18,31 @@
 			<li><a href="#" class="user-icon"><span
 					class="glyphicon glyphicon-home glyphicon-blackboard"
 					aria-hidden="true"></span>Videos</a></li>
+					<%
+					if (request.getSession().getAttribute("usuarioLogueado") != null) {
+				%>
 			<ul class="">
 				<li><a href="subirVideoYT">Subir video</a></li>
 				<li><a href="movies.html">Ver videos</a></li>
 			</ul>
+			<% }else{ %>
+			<ul class="">
+				<li><a href="#small-dialog" class="play-icon popup-with-zoom-anim">Iniciar sesion</a></li>
+			</ul>
+			<%} %>
 			<li><a href="#" class="user-icon menu1"><span
 					class="glyphicon glyphicon-home glyphicon-blackboard"
 					aria-hidden="true"></span>Listas <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></a></li>
 			<ul class="cl-effect-1">
+			<%
+					if (request.getSession().getAttribute("usuarioLogueado") != null) {
+				%>
 							<jsp:include page="modalCrearLista.jsp"></jsp:include>
 			
 				<li>
 				<a href="#small-dialog8" class="play-icon popup-with-zoom-anim" data-toggle="modal" data-target="#Modal" >+ Crear lista</a>
 				</li>
-				<li><a href="movies.html">Ver mas tarde</a></li>
-				<li><a href="movies.html">Me gusta</a></li>
-				<%
-					if (request.getSession().getAttribute("usuarioLogueado") != null) {
-				%>
+				
 				<%
 					for (Lista l : (List<Lista>) request.getSession().getAttribute("listas")) {
 				%>
@@ -44,6 +51,8 @@
 					}
 				%>
 				<%
+					}else{
+						%><li><a href="#small-dialog" class="play-icon popup-with-zoom-anim">Iniciar sesion</a></li><%
 					}
 				%>
 			</ul>

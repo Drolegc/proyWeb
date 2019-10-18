@@ -2809,12 +2809,23 @@ table.uploadvideo td{
     font-size:16px;
     width: 100px;
     padding:15px 20px 13px 20px;
-    vertical-align:middle
+    vertical-align:middle;
 }
 table.uploadvideo tr{
 	width: 225px;
 }
-
+.uploadvideo h1{
+	color:#cc0000;
+	margin-bottom: 40px;
+}
+.categorias h1{
+	padding-left: 20px;
+	color:#cc0000;
+}
+.listaReproduccion h1{
+	padding-left: 20px; 
+	color:#cc0000;
+}
 form.uploadvideo input.submit {
     background: #cc0000;
     border: white;
@@ -2822,6 +2833,18 @@ form.uploadvideo input.submit {
     border-radius: 5px;
     font-size: 20px;
     width: 200px;
+    color: white;
+    margin-right:30%;
+    }
+    
+form.uploadvideo input.boton {
+    background: #cc0000;
+    border: white;
+    background-clip: padding-box;
+    border-radius: 5px;
+    font-size: 15px;
+    font-style: italic;
+    width: 100px;
     color: white;
     }
 

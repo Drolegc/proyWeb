@@ -2,29 +2,34 @@
 	pageEncoding="ISO-8859-1"%>
 <%@ page import="uytube.models.Lista"%>
 <%@ page import="uytube.models.Video"%>
+<%@ page import="uytube.models.Usuario"%>
 <%@ page import="java.util.List"%>
 <jsp:include page="header.jsp"></jsp:include>
 
 
 <!DOCTYPE html>
 <html>
-<head>
+<head class="listaReproduccion">
 <meta charset="UTF-8">
-<title>UyTube | Lista de Reproducción</title>
+<title>Lista de Reproducción</title>
 </head>
-<body>
+<body class="listaReproduccion">
 	<jsp:include page="sideBar.jsp"></jsp:include>
 	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 		<div class="single-grid-right">
-			<h1 style="padding-left: 20px;">
-				UyTube |
-				<%=request.getAttribute("nombreLista")%></h1>
-				<p style="font-size: 20px; padding-left: 20px; color:grey;">Lista de reproducción</p>
+			<h1 class="listaReproduccion">
+				UyTube&nbsp;<span style="color: black;">| <%=request.getAttribute("nombreLista")%></span>&nbsp;<span
+					style="color: black; font-size: 100%;">| <%=request.getSession().getAttribute("usuarioLogueado")%>
+				</span>
+			</h1>
+			<p style="font-size: 20px; padding-left: 20px; color: grey;">Lista
+				de reproducción</p>
 			<%
 				for (Video v : (List<Video>) request.getAttribute("listaRepro")) {
 			%>
 			<div class="animated-grids">
-				<div style="padding-left: 10px; padding-bottom: 10px;" class="col-md-3 resent-grid recommended-grid slider-first">
+				<div style="padding-left: 10px; padding-bottom: 10px;"
+					class="col-md-3 resent-grid recommended-grid slider-first">
 					<div class="resent-grid-img recommended-grid-img">
 						<a href="ver?id_video=<%=v.getId()%>"><img
 							src="https://i.ytimg.com/vi/<%=v.getUrl()%>/hqdefault.jpg" alt="" /></a>

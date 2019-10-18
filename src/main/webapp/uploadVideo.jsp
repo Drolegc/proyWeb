@@ -15,15 +15,17 @@
 	<jsp:include page="sideBar.jsp"></jsp:include>
 	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 		<div class="col-sm-8 single-left">
-			<h1 style="margin-bottom: 40px;">UyTube | Coloca los datos de tu
-				video</h1>
+			<h1 class="uploadvideo">
+				UyTube&nbsp;<span style="color: black;">| Coloca los datos de
+					tu video</span>
+			</h1>
 			<form class="uploadvideo" action="subirVideoYT" method="post">
 				<table class="uploadvideo table-bordered">
 					<tbody>
 						<tr>
 							<td>Título</td>
 							<td>Descripción</td>
-							<td>Categoria  (Opcional)</td>
+							<td>Categoria (Opcional)</td>
 						</tr>
 						<tr>
 
@@ -53,7 +55,12 @@
 						</tr>
 					</tbody>
 				</table>
-				<input class="submit" type="submit" value="Sube tu video" />
+
+				<input class="submit" type="submit" value="Sube tu video" /> <input
+					class="boton" type=button value="Atrás" onclick="history.go(-1)">
+				<a href="/web"><input class="boton" type=button
+					value="Ir al inicio" onclick="window.location.href='/web/home"></a>
+
 
 			</form>
 		</div>
